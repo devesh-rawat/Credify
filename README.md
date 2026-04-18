@@ -136,6 +136,7 @@ flutter run
 ## License
 
 This repository does not include a license file. Add one if you want to open-source the project.
+
 --- 
-### Developers :- Devesh Rawat,Jyoti Negi,Pranjal Arya and Deepika Chauhan
-# Credify
+
+### Developers :- Devesh Rawat , Jyoti Negi , Pranjal Arya and Deepika Chauhan
