@@ -1,0 +1,273 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import ProfileMenu from '../components/dashboard/ProfileMenu';
+import InitialDashboard from '../components/dashboard/InitialDashboard';
+import ConsentScreen from '../components/dashboard/ConsentScreen';
+import KYCVerification from '../components/dashboard/KYCVerification';
+import OTPVerification from '../components/dashboard/OTPVerification';
+import ScoreDashboard from '../components/dashboard/ScoreDashboard';
+import ApplicationsView from '../components/dashboard/ApplicationsView';
+import BankAccountsView from '../components/dashboard/BankAccountsView';
+import EMICalculatorView from '../components/dashboard/EMICalculatorView';
+import RBIGuidelinesView from '../components/dashboard/RBIGuidelinesView';
+import ApplyLoanForm from '../components/dashboard/ApplyLoanForm';
+import { apiRequest, API_ENDPOINTS } from '../config';
+
+const UserDashboard = ({ user: propUser, applications: propApplications, onUpdateApplications }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [aadhar, setAadhar] = useState('');
+  const [pan, setPan] = useState('');
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [creditScore, setCreditScore] = useState(null);
+  const [showReport, setShowReport] = useState(false);
+  const [loanAmount, setLoanAmount] = useState(500000);
+  const [loanTenure, setLoanTenure] = useState(5);
+  const [interestRate, setInterestRate] = useState(10.5);
+  const [applications, setApplications] = useState(propApplications || []);
+  const [banks, setBanks] = useState([]);
+  const [expandedGuideline, setExpandedGuideline] = useState(null);
+  const [showApplyLoanForm, setShowApplyLoanForm] = useState(false);
+  const [lastDownloadedScore, setLastDownloadedScore] = useState(null);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const otpInputs = useRef([]);
+  const [scoreGenerating, setScoreGenerating] = useState(false);
+  const [incomeStability, setIncomeStability] = useState('Excellent');
+  const [paymentDiscipline, setPaymentDiscipline] = useState('96%');
+  const [scoringData, setScoringData] = useState(null);
+
+  // User data
+  const [user, setUser] = useState(propUser || { name: 'User', email: '' });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        // 1. Fetch User Details
+        const userRes = await apiRequest(API_ENDPOINTS.USER_ME);
+        if (userRes.ok) {
+          const userData = await userRes.json();
+          setUser({
+            name: userData.full_name || 'User',
+            email: userData.email,
+            id: userData.user_id
+          });
+          if (userData.pan) setPan(userData.pan);
+          if (userData.aadhaar) setAadhar(userData.aadhaar);
+        }
+
+        // 2. Fetch Credit Score
+        const scoreRes = await apiRequest(API_ENDPOINTS.SCORING_ME);
+        if (scoreRes.ok) {
+          const scoreData = await scoreRes.json();
+          setCreditScore(scoreData.credit_score);
+          setScoringData(scoreData);
+          // Extract insights if available, otherwise default
+          if (scoreData.income_stability) setIncomeStability(scoreData.income_stability);
+          if (scoreData.payment_discipline) setPaymentDiscipline(scoreData.payment_discipline);
+        } else if (scoreRes.status === 404) {
+          setCreditScore(null);
+          setScoringData(null);
+        }
+
+        // 3. Fetch Applications
+        const appsRes = await apiRequest(API_ENDPOINTS.APPLICATIONS_ME);
+        if (appsRes.ok) {
+          const appsData = await appsRes.json();
+          // Map backend application data to frontend format if needed
+          const mappedApps = appsData.map(app => ({
+            id: app.application_id || app._id,
+            score: app.credit_score_at_application,
+            amount: `₹${app.amount.toLocaleString()}`,
+            status: app.status.charAt(0).toUpperCase() + app.status.slice(1).toLowerCase(),
+            time: new Date(app.created_at).toLocaleTimeString(),
+            date: new Date(app.created_at).toLocaleDateString(),
+            applicant: user.name, // Or from app data if available
+            email: user.email,
+            purpose: app.purpose
+          }));
+          setApplications(mappedApps);
+        }
+
+        // 4. Fetch Banks
+        const banksRes = await apiRequest(API_ENDPOINTS.BANKS);
+        if (banksRes.ok) {
+          const banksData = await banksRes.json();
+          // Map backend bank data to frontend format
+          const mappedBanks = banksData.map(bank => ({
+            id: bank.account_id,
+            name: bank.bank_name || 'Bank',
+            account: `****${bank.account_number.slice(-4)}`,
+            ifsc: 'XXXX0000000', // Backend might not send IFSC in this endpoint yet
+            type: bank.account_type,
+            branch: 'Main Branch',
+            logo: '🏦',
+            balance: bank.balance
+          }));
+          setBanks(mappedBanks);
+        }
+
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Helper Functions
+  const handleOtpChange = (index, value) => {
+    if (value.length <= 1 && /^\d*$/.test(value)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+
+      if (value && index < 5) {
+        otpInputs.current[index + 1]?.focus();
+      }
+    }
+  };
+
+  const handleOtpKeyDown = (index, e) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+      otpInputs.current[index - 1]?.focus();
+    }
+  };
+
+  const handleApplyForLoan = () => {
+    setShowApplyLoanForm(true);
+  };
+
+  const handleLoanApplicationSuccess = async (data) => {
+    // Refresh applications list
+    const updatedApps = [data, ...applications];
+    setApplications(updatedApps);
+    if (onUpdateApplications) {
+      onUpdateApplications(updatedApps);
+    }
+    alert('Loan application submitted successfully!');
+  };
+
+  const handleDownloadReport = () => {
+    // This function will be handled in ScoreDashboard now with jspdf
+    // But keeping it here or passing logic down is fine. 
+    // Ideally, logic should be in ScoreDashboard or a utility.
+    // For now, we'll let ScoreDashboard handle it directly or pass data to it.
+  };
+
+  const handleRegenerateScore = () => {
+    // Navigate to consent screen to restart flow
+    navigate('/user-dashboard/consent');
+  };
+
+  // Main Dashboard Content based on credit score presence
+  const MainDashboard = () => {
+    if (scoreGenerating) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex flex-col items-center justify-center p-4">
+          <div className="bg-white p-8 rounded-3xl shadow-xl text-center max-w-md w-full">
+            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+              <svg className="w-10 h-10 text-blue-600 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Analyzing Your Financial Profile</h2>
+            <p className="text-gray-600">We are gathering your data and calculating your credit score. This may take a moment...</p>
+          </div>
+        </div>
+      );
+    }
+
+    if (!creditScore) {
+      return (
+        <InitialDashboard
+          user={user}
+          showProfileMenu={showProfileMenu}
+          setShowProfileMenu={setShowProfileMenu}
+          setStep={(step) => navigate(`/user-dashboard/${step}`)}
+          applications={applications}
+          banks={banks}
+          setView={(view) => navigate(`/user-dashboard/${view}`)}
+          creditScore={creditScore}
+          aadhar={aadhar}
+          pan={pan}
+        />
+      );
+    }
+
+    return (
+      <ScoreDashboard
+        user={user}
+        showProfileMenu={showProfileMenu}
+        setShowProfileMenu={setShowProfileMenu}
+        creditScore={creditScore}
+        setShowReport={setShowReport}
+        handleRegenerateScore={handleRegenerateScore}
+        handleApplyForLoan={handleApplyForLoan}
+        setView={(view) => navigate(`/user-dashboard/${view}`)}
+        showReport={showReport}
+        handleDownloadReport={handleDownloadReport}
+        aadhar={aadhar}
+        pan={pan}
+        banks={banks}
+        applications={applications}
+        incomeStability={incomeStability}
+        paymentDiscipline={paymentDiscipline}
+        scoringData={scoringData}
+      />
+    );
+  };
+
+  return (
+    pan = { pan }
+          setPan = { setPan }
+  loanAmount = { loanAmount }
+  setLoanAmount = { setLoanAmount }
+    />
+      } />
+  < Route path = "/otp" element = {
+        < OTPVerification
+setStep = {(step) => step === 'initial' ? navigate('/user-dashboard') : navigate(`/user-dashboard/${step}`)}
+otp = { otp }
+setOtp = { setOtp }
+otpInputs = { otpInputs }
+handleOtpChange = { handleOtpChange }
+handleOtpKeyDown = { handleOtpKeyDown }
+setCreditScore = { setCreditScore }
+setView = {(view) => navigate(`/user-dashboard/${view}`)}
+user = { user }
+aadhar = { aadhar }
+setScoreGenerating = { setScoreGenerating }
+  />
+      } />
+  < Route path = "/applications" element = {< ApplicationsView setView = {(view) => view === 'dashboard' ? navigate('/user-dashboard') : navigate(`/user-dashboard/${view}`)} applications = { applications } user = { user } />} />
+    < Route path = "/banks" element = {< BankAccountsView setView = {(view) => view === 'dashboard' ? navigate('/user-dashboard') : navigate(`/user-dashboard/${view}`)} banks = { banks } />} />
+      < Route path = "/emi" element = {
+        < EMICalculatorView
+setView = {(view) => view === 'dashboard' ? navigate('/user-dashboard') : navigate(`/user-dashboard/${view}`)}
+loanAmount = { loanAmount }
+setLoanAmount = { setLoanAmount }
+loanTenure = { loanTenure }
+setLoanTenure = { setLoanTenure }
+interestRate = { interestRate }
+setInterestRate = { setInterestRate }
+  />
+      } />
+  < Route path = "/rbi" element = {
+        < RBIGuidelinesView
+setView = {(view) => view === 'dashboard' ? navigate('/user-dashboard') : navigate(`/user-dashboard/${view}`)}
+expandedGuideline = { expandedGuideline }
+setExpandedGuideline = { setExpandedGuideline }
+  />
+      } />
+    </Routes >
+  );
+};
+
+export default UserDashboard;

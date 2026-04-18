@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-family: Arial, sans-serif; color: #222;">
+    <p>Hi {{ user_name }},</p>
+    <p>Your latest Credify credit assessment is complete. Here&rsquo;s a quick snapshot:</p>
+    <table cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
+      <tr>
+        <td style="font-weight: bold;">Credit Score</td>
+        <td>{{ credit_score }}</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Risk Level</td>
+        <td>{{ risk_label }}</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Default Probability</td>
+        <td>{{ default_probability }}</td>
+      </tr>
+    </table>
+
+    {% if insights_summary %}
+    <p style="margin-top: 16px;"><strong>AI Insight:</strong> {{ insights_summary }}</p>
+    {% endif %}
+
+    <p>The detailed PDF report is attached and also available in your Credify dashboard whenever you need it.</p>
+
+    <p>Best,<br/>Team Credify</p>
+  </body>
+</html>
+

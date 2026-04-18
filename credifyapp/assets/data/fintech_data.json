@@ -1,0 +1,400 @@
+[
+  {
+    "question": "What is Credify?",
+    "answer": "Credify is an AI-powered digital credit verification and scoring platform that analyzes your bank transactions, income stability, spending habits, and bill payments to calculate a Trust Score between 300 and 900."
+  },
+  {
+    "question": "Who developed Credify?",
+    "answer": "Credify was developed by Devesh Rawat, Jyoti Negi, Pranjal Arya, and Deepika Chauhan as a modern AI-based credit verification and digital lending solution."
+  },
+  {
+    "question": "What is the Credify score range?",
+    "answer": "Credify Score ranges from 300 to 900. Scores above 750 are excellent, 650–749 are good, and below 650 are considered high risk."
+  },
+  {
+    "question": "How does Credify calculate my score?",
+    "answer": "Credify uses AI and machine learning to evaluate income stability, spending behavior, bill payment discipline, savings patterns, cash flow regularity, and transaction categories."
+  },
+  {
+    "question": "What data does Credify use?",
+    "answer": "Credify uses consented bank statements, utility payment behavior, spending categories, salary credits, savings, EMI payments, and transaction patterns."
+  },
+  {
+    "question": "Is my bank data stored permanently?",
+    "answer": "No. Credify processes your bank data only once during scoring. Data is not stored permanently for privacy and compliance reasons."
+  },
+  {
+    "question": "What is a good Credify score?",
+    "answer": "A score between 750 and 900 is considered excellent and increases your chances of fast loan approval."
+  },
+  {
+    "question": "What is a bad Credify score?",
+    "answer": "A score below 620 indicates high risk due to irregular income, missed payments, or inconsistent spending patterns."
+  },
+  {
+    "question": "Can I improve my score?",
+    "answer": "Yes. Paying bills on time, reducing unnecessary expenses, maintaining stable income credits, and having fewer cash withdrawals can improve your score."
+  },
+  {
+    "question": "Does Credify affect my CIBIL score?",
+    "answer": "No. Credify is an internal AI scoring system and does not affect your official CIBIL or bureau score."
+  },
+  {
+    "question": "What is CIBIL?",
+    "answer": "CIBIL is one of India's major credit bureaus that maintains credit histories and provides scores from 300 to 900."
+  },
+  {
+    "question": "Does Credify replace CIBIL?",
+    "answer": "No. Credify complements traditional credit scores by analyzing behavioral, income, and spending patterns."
+  },
+  {
+    "question": "What is Account Aggregator (AA)?",
+    "answer": "Account Aggregator is an RBI-regulated system that securely shares your financial data with your consent using encrypted channels."
+  },
+  {
+    "question": "Is Account Aggregator safe?",
+    "answer": "Yes. AA is regulated by RBI and does not store your data. It only transfers encrypted information with user consent."
+  },
+  {
+    "question": "Does Credify use real AA?",
+    "answer": "Credify uses an AA simulation backend for hackathon purposes but follows the exact flow used by real AAs like Finvu and CAMSFinServ."
+  },
+  {
+    "question": "What is KYC?",
+    "answer": "KYC means Know Your Customer. It verifies your identity using PAN, Aadhaar, or other documents as required by RBI."
+  },
+  {
+    "question": "Why is PAN required?",
+    "answer": "PAN is used to identify financial history, prevent fraud, and comply with income verification laws."
+  },
+  {
+    "question": "Why is Aadhaar required?",
+    "answer": "Aadhaar is used for identity verification and OTP-based eKYC authentication."
+  },
+  {
+    "question": "Does Credify ask for physical documents?",
+    "answer": "No. Credify uses digital verification with PAN and Aadhaar only."
+  },
+  {
+    "question": "What is EMI?",
+    "answer": "EMI stands for Equated Monthly Installment, the monthly amount you must pay to repay a loan over a fixed tenure."
+  },
+  {
+    "question": "How is EMI calculated?",
+    "answer": "EMI is calculated using principal amount, interest rate, and tenure using the formula: EMI = [P × R × (1+R)^N] / [(1+R)^N – 1]."
+  },
+  {
+    "question": "What is interest rate?",
+    "answer": "Interest rate is the cost of borrowing money, expressed as a percentage per year. Personal loan rates generally range from 8% to 15%."
+  },
+  {
+    "question": "Why was my score low?",
+    "answer": "Your score might be low due to irregular income, high spending, frequent cash withdrawals, missed bill payments, or loan defaults."
+  },
+  {
+    "question": "Can thin-file users get a score?",
+    "answer": "Yes. Credify analyzes utility bills, spending discipline, and income patterns to assign a score even if you lack credit history."
+  },
+  {
+    "question": "What are thin-file users?",
+    "answer": "Thin-file users have little or no financial or credit history, making traditional scoring difficult."
+  },
+  {
+    "question": "Can a user with no bank account be scored?",
+    "answer": "Yes, using alternative metrics such as income declarations, employer verification, cash-flow surveys, and utility bills."
+  },
+  {
+    "question": "What is debt-to-income ratio?",
+    "answer": "Debt-to-income ratio compares your total monthly EMIs to your monthly income. Lower ratios indicate better repayment capacity."
+  },
+  {
+    "question": "What is a high-risk borrower?",
+    "answer": "Someone whose income is irregular, expenses exceed income, EMIs bounce frequently, or who has unstable cash flow."
+  },
+  {
+    "question": "What is loan default?",
+    "answer": "Loan default occurs when a borrower fails to pay EMIs on time and falls behind repayment schedule."
+  },
+  {
+    "question": "How does Credify detect risk?",
+    "answer": "Using ML-based analysis of cash flow, bill payments, credit behavior, ATM usage, salary patterns, and spending categories."
+  },
+  {
+    "question": "What are risky transactions?",
+    "answer": "Frequent ATM withdrawals, gambling, gaming, crypto payments, overdue bills, and irregular high-value cash deposits."
+  },
+  {
+    "question": "What is income stability?",
+    "answer": "How consistently money enters your account. Salaried users usually have higher stability."
+  },
+  {
+    "question": "What is spending discipline?",
+    "answer": "Maintaining controlled expenses, avoiding unnecessary purchases, and paying bills on time."
+  },
+  {
+    "question": "What is a financial profile?",
+    "answer": "A summary of your income, expenses, savings, bills, and financial habits used for loan evaluation."
+  },
+  {
+    "question": "How long does Credify scoring take?",
+    "answer": "Only 2–5 seconds after OTP verification and pulling statements."
+  },
+  {
+    "question": "Which bank accounts are supported?",
+    "answer": "Simulated accounts for SBI, HDFC, ICICI, Axis Bank, Kotak Mahindra, and PNB."
+  },
+  {
+    "question": "How is data fetched from banks?",
+    "answer": "Using secure API calls following AA architecture, processed instantly after consent."
+  },
+  {
+    "question": "How do I apply for a loan?",
+    "answer": "After your score is generated, choose your bank account, loan amount, and purpose to submit an application."
+  },
+  {
+    "question": "How does the admin dashboard work?",
+    "answer": "Admins can view and process loan applications of their bank branch only. They see user score, risk, and insights."
+  },
+  {
+    "question": "How are admins verified?",
+    "answer": "Admins log in with email and password stored in the database. Each admin is assigned a specific branch ID."
+  },
+  {
+    "question": "Are admins allowed to see all data?",
+    "answer": "No. Admins only see loan applications assigned to their branch. User bank statements are not shown."
+  },
+  {
+    "question": "What happens after admin approves the loan?",
+    "answer": "The user receives an email and SMS notification with digital sanction details."
+  },
+  {
+    "question": "What is the benefit of Credify?",
+    "answer": "Faster approvals, fair scoring, no paperwork, and real-time risk assessment."
+  },
+  {
+    "question": "Does Credify generate a PDF report?",
+    "answer": "Yes. Credify generates a detailed AI-powered PDF report containing score, risk bands, income trend, spending patterns, and personalized insights."
+  },
+  {
+    "question": "What is RBI’s digital lending guideline?",
+    "answer": "RBI mandates consent-based data access, clear loan terms, secure KYC, disclosure of fees, and no unauthorized data storage."
+  },
+  {
+    "question": "Are loan apps allowed to access phone contacts?",
+    "answer": "No. RBI strictly prohibits accessing contacts, gallery, or personal SMS logs for scoring."
+  },
+  {
+    "question": "Do lenders need consent to access bank data?",
+    "answer": "Yes. RBI requires explicit user consent for any financial data access."
+  },
+  {
+    "question": "What is the role of Aadhaar in lending?",
+    "answer": "Aadhaar is primarily used for identity verification through OTP-based eKYC."
+  },
+  {
+    "question": "What is PAN verification?",
+    "answer": "PAN verification checks if your PAN number is valid and linked to your identity and financial profile."
+  },
+  {
+    "question": "Does Credify charge any fees?",
+    "answer": "No. Credify scoring is free for users during the hackathon demonstration."
+  },
+  {
+    "question": "Can freelancers get loans?",
+    "answer": "Yes, if they show stable monthly income and disciplined spending patterns."
+  },
+  {
+    "question": "Why do lenders check utility bill payments?",
+    "answer": "On-time bill payments indicate financial discipline, especially for users with low financial history."
+  },
+  {
+    "question": "Can irregular income users get a high score?",
+    "answer": "Yes, if their expenses are steady and bills are paid on time."
+  },
+  {
+    "question": "Does Credify track UPI transactions?",
+    "answer": "Yes. Spending via UPI is categorized and analyzed to understand financial behavior."
+  },
+  {
+    "question": "What are spending categories?",
+    "answer": "Food, travel, rent, utilities, shopping, EMI, entertainment, ATM withdrawals, and miscellaneous."
+  },
+  {
+    "question": "How does Credify classify spending?",
+    "answer": "Using AI models that identify merchant categories and spending patterns from transaction descriptions."
+  },
+  {
+    "question": "Does Credify support joint bank accounts?",
+    "answer": "Yes, as long as the account owner’s PAN and Aadhaar match the user applying for loan."
+  },
+  {
+    "question": "Does Credify support business accounts?",
+    "answer": "Not fully, but small business owners can use their personal bank accounts for evaluation."
+  },
+  {
+    "question": "What happens if a user enters wrong OTP?",
+    "answer": "The system shows an error and request re-entry of the correct OTP."
+  },
+  {
+    "question": "What happens after OTP verification?",
+    "answer": "Credify pulls your bank statements from AA and runs them through the ML scoring pipeline."
+  },
+  {
+    "question": "What ML model does Credify use?",
+    "answer": "Credify uses Random Forest & Logistic Regression variants for score prediction and default probability calculation."
+  },
+  {
+    "question": "What is default probability?",
+    "answer": "The chance that a borrower might fail to repay future EMIs."
+  },
+  {
+    "question": "Does Cash withdrawal affect score?",
+    "answer": "Frequent high-value ATM withdrawals reduce score due to low transparency."
+  },
+  {
+    "question": "Does Credify use RAG?",
+    "answer": "Credify uses a local LLM to generate insights without external document fetching."
+  },
+  {
+    "question": "Does Credify store OTP?",
+    "answer": "No. OTP is used only for verification and not stored anywhere."
+  },
+  {
+    "question": "Is Credify safe?",
+    "answer": "Yes. It follows RBI guidelines for data handling, encryption, and consent-based access."
+  },
+  {
+    "question": "What is transaction enrichment?",
+    "answer": "Transaction enrichment is the process where Credify’s AI converts raw bank text like 'UPI/2345/AMZN' into meaningful categories such as shopping, groceries, or utilities."
+  },
+  {
+    "question": "What is real-time scoring?",
+    "answer": "Real-time scoring means Credify instantly evaluates your financial history within seconds using AI without human intervention."
+  },
+  {
+    "question": "Does Credify use machine learning for fraud detection?",
+    "answer": "Yes. Credify detects suspicious patterns such as sudden large withdrawals, repeated UPI transfers to risky merchants, or inconsistent balances."
+  },
+  {
+    "question": "What is loan eligibility?",
+    "answer": "Loan eligibility indicates whether a user qualifies for a personal loan based on income, expenses, Credify score, and risk profile."
+  },
+  {
+    "question": "What is a risk band?",
+    "answer": "Risk bands classify users into categories like Low Risk, Medium Risk, and High Risk for better loan decision-making."
+  },
+  {
+    "question": "Does Credify store bank statements?",
+    "answer": "No. All statements are processed temporarily in RAM and discarded immediately after scoring."
+  },
+  {
+    "question": "Can admins modify user scores?",
+    "answer": "No. Credify scores are auto-generated by AI and cannot be manually edited for fairness and transparency."
+  },
+  {
+    "question": "What if a bank account has missing data?",
+    "answer": "Credify uses fallback models and alternative financial indicators to score the user fairly."
+  },
+  {
+    "question": "Does Credify support multiple accounts at once?",
+    "answer": "Yes. Users can link several accounts across different banks, and Credify merges all data into a unified scoring system."
+  },
+  {
+    "question": "How does Credify detect salary?",
+    "answer": "It identifies consistent monthly credits from employers using pattern recognition and transaction descriptions."
+  },
+  {
+    "question": "What is a financial discipline score?",
+    "answer": "A sub-score calculated based on bill payments, UPI spending, ATM withdrawals, and monthly savings."
+  },
+  {
+    "question": "What is cash-flow analysis?",
+    "answer": "Cash-flow analysis measures how much money comes into your account versus how much goes out, helping identify saving patterns and repayment capacity."
+  },
+  {
+    "question": "What happens if a user has multiple salary credits?",
+    "answer": "Credify considers the primary recurring income source while still accounting for side incomes to ensure fair scoring."
+  },
+  {
+    "question": "Does Credify support NRE/NRO accounts?",
+    "answer": "Currently no, but support may be added later depending on RBI regulations and AA ecosystem expansion."
+  },
+  {
+    "question": "Why does Credify analyze ATM withdrawals?",
+    "answer": "Frequent or high-value cash withdrawals reduce transparency and may indicate unstable financial behavior."
+  },
+  {
+    "question": "What is spending leakage?",
+    "answer": "Spending leakage refers to unnecessary recurring expenses like subscriptions, impulsive buys, or non-essential spending."
+  },
+  {
+    "question": "What is a credit utilization pattern?",
+    "answer": "It measures how frequently users spend large amounts compared to income, helping determine financial discipline."
+  },
+  {
+    "question": "Does Credify analyze credit card payments?",
+    "answer": "Yes. Timely credit card bill payments boost the score, while delayed payments indicate risk."
+  },
+  {
+    "question": "What is pre-approved loan eligibility?",
+    "answer": "Pre-approved eligibility means users with good scores and stable income can get instant loan approval with minimal verification."
+  },
+  {
+    "question": "What is repayment capacity?",
+    "answer": "Repayment capacity is calculated by subtracting monthly expenses and EMIs from your income to estimate how much loan you can safely handle."
+  },
+  {
+    "question": "How does Credify handle joint spending accounts?",
+    "answer": "Credify separates individual salary and spending patterns using user-linked PAN and Aadhaar details."
+  },
+  {
+    "question": "What is net monthly surplus?",
+    "answer": "It is the leftover amount after deducting monthly expenses and EMIs from total income."
+  },
+  {
+    "question": "Does Credify check overdraft accounts?",
+    "answer": "Yes. Overdraft usage is analyzed to determine financial stress or dependency on borrowed money."
+  },
+  {
+    "question": "Does Credify track EMI bounce history?",
+    "answer": "Yes. Bounced EMIs significantly affect the user's risk profile and score."
+  },
+  {
+    "question": "What is user consent in Credify?",
+    "answer": "Consent is the user’s approval for Credify to access their bank data via AA for scoring purposes."
+  },
+  {
+    "question": "How long is user consent valid?",
+    "answer": "Consent is valid only for one-time data fetching during the scoring process."
+  },
+  {
+    "question": "Can Credify deny scoring?",
+    "answer": "Credify may not generate a score if bank data is extremely inconsistent or insufficient."
+  },
+  {
+    "question": "What happens if scoring fails?",
+    "answer": "Users are asked to retry linking their bank account or choose a different bank for better accuracy."
+  },
+  {
+    "question": "What insights does the AI report contain?",
+    "answer": "The report includes score, risk band, savings trend, monthly cash-flow, ATM usage, spending categories, and personalized financial advice."
+  },
+  {
+    "question": "Do I need an active SIM for OTP?",
+    "answer": "Yes, because OTP verification is mandatory for secure AA-based data access."
+  },
+  {
+    "question": "Can students apply for loans?",
+    "answer": "Yes, if they have a regular income source or a co-applicant with stable financial history."
+  },
+  {
+    "question": "Why do banks check repayment history?",
+    "answer": "Repayment history shows whether users consistently pay EMIs on time, which is crucial for predicting loan default risk."
+  },
+  {
+    "question": "What is the difference between credit score and Credify score?",
+    "answer": "Credit score is bureau-based, while Credify score is behavior-based and analyzes transaction patterns using AI."
+  }
+
+
+]

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-family: Arial, sans-serif; color: #222;">
+    <p>Hi {{ user_name }},</p>
+
+    {% if status == "APPROVED" %}
+    <p>Great news! Your loan application has been <strong>approved</strong>.</p>
+    <p>Application details:</p>
+    {% else %}
+    <p>Thank you for applying with Credify. After careful review, your application was <strong>not approved</strong> at this time.</p>
+    <p>Application summary:</p>
+    {% endif %}
+
+    <ul>
+      <li><strong>Requested Amount:</strong> {{ amount }}</li>
+      <li><strong>Purpose:</strong> {{ purpose }}</li>
+      <li><strong>Bank ID:</strong> {{ bank_id }}</li>
+      <li><strong>Branch:</strong> {{ branch_id }}</li>
+    </ul>
+
+    {% if notes %}
+    <p><strong>Officer Notes:</strong> {{ notes }}</p>
+    {% endif %}
+
+    {% if status == "APPROVED" %}
+    <p>Our team will reach out shortly with next steps to finalize the disbursement.</p>
+    {% else %}
+    <p>You&rsquo;re welcome to reapply after addressing the points above. We&rsquo;re happy to help if you have any questions.</p>
+    {% endif %}
+
+    <p>Best,<br/>Team Credify</p>
+  </body>
+</html>
+

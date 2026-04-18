@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+pymongo
+python-jose[cryptography]
+bcrypt
+python-multipart
+pandas
+scikit-learn
+joblib
+fpdf
+pydantic
+pydantic-settings
+email-validator
+numpy
+requests
+google-generativeai
+Jinja2

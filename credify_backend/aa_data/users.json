@@ -1,0 +1,128 @@
+{
+  "U001": {
+    "user_id": "U001",
+    "full_name": "Devesh Rawat",
+    "email": "devesh08rawat@gmail.com",
+    "aadhaar": "123456789012",
+    "pan": "ABCDE1234A",
+    "accounts": [
+      {
+        "account_id": "ACC-HDFC-01",
+        "bank_name": "HDFC Bank",
+        "bank_id": "B220",
+        "branch_id": "HDFC_BRANCH",
+        "account_number": "501002345678",
+        "ifsc": "HDFC0001234",
+        "account_type": "SAVINGS"
+      },
+      {
+        "account_id": "ACC-SBI-02",
+        "bank_name": "State Bank of India",
+        "bank_id": "B480",
+        "branch_id": "SBI_BRANCH",
+        "account_number": "203040506070",
+        "ifsc": "SBIN0004321",
+        "account_type": "SAVINGS"
+      }
+    ]
+  },
+  "U002": {
+    "user_id": "U002",
+    "full_name": "Jyoti Negi",
+    "email": "jn503971@gmail.com",
+    "aadhaar": "123456789013",
+    "pan": "ABCDE1234B",
+    "accounts": [
+      {
+        "account_id": "ACC-ICICI-03",
+        "bank_name": "ICICI Bank",
+        "bank_id": "B372",
+        "branch_id": "ICIC_BRANCH",
+        "account_number": "102030405060",
+        "ifsc": "ICIC0006789",
+        "account_type": "SAVINGS"
+      }
+    ]
+  },
+  "U003": {
+    "user_id": "U003",
+    "full_name": "Deepika Chauhan",
+    "email": "deepika5204chauhan@gmail.com",
+    "aadhaar": "123456789014",
+    "pan": "ABCDE1234C",
+    "accounts": [
+      {
+        "account_id": "ACC-AXIS-04",
+        "bank_name": "Axis Bank",
+        "bank_id": "B729",
+        "branch_id": "AXIS_BRANCH",
+        "account_number": "908070605040",
+        "ifsc": "UTIB0001234",
+        "account_type": "CURRENT"
+      },
+      {
+        "account_id": "ACC-HDFC-05",
+        "bank_name": "HDFC Bank",
+        "bank_id": "B220",
+        "branch_id": "HDFC_BRANCH",
+        "account_number": "501009876543",
+        "ifsc": "HDFC0005678",
+        "account_type": "CURRENT"
+      },
+      {
+        "account_id": "ACC-KOTAK-06",
+        "bank_name": "Kotak Mahindra Bank",
+        "bank_id": "B113",
+        "branch_id": "KOTA_BRANCH",
+        "account_number": "712345678901",
+        "ifsc": "KKBK0007890",
+        "account_type": "SAVINGS"
+      }
+    ]
+  },
+  "U004": {
+    "user_id": "U004",
+    "full_name": "Pranjal Arya",
+    "email": "pranjal19082004@gmail.com",
+    "aadhaar": "123456789015",
+    "pan": "ABCDE1234D",
+    "accounts": [
+      {
+        "account_id": "ACC-SBI-07",
+        "bank_name": "State Bank of India",
+        "bank_id": "B480",
+        "branch_id": "SBI_BRANCH",
+        "account_number": "203098765432",
+        "ifsc": "SBIN0009876",
+        "account_type": "SAVINGS"
+      }
+    ]
+  },
+  "U005": {
+    "user_id": "U005",
+    "full_name": "Swati Rawat",
+    "email": "devesh1996rawat@gmail.com",
+    "aadhaar": "123456789016",
+    "pan": "ABCD1234E",
+    "accounts": [
+      {
+        "account_id": "ACC-ICICI-08",
+        "bank_name": "ICICI Bank",
+        "bank_id": "B372",
+        "branch_id": "ICIC_BRANCH",
+        "account_number": "102098765432",
+        "ifsc": "ICIC0001111",
+        "account_type": "SALARY"
+      },
+      {
+        "account_id": "ACC-YES-09",
+        "bank_name": "Yes Bank",
+        "bank_id": "B136",
+        "branch_id": "YES_BRANCH",
+        "account_number": "987654321098",
+        "ifsc": "YESB0002222",
+        "account_type": "SAVINGS"
+      }
+    ]
+  }
+}
